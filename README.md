@@ -10,7 +10,7 @@ Die $GLOBALS im Script mit den richtigen Pfaden und Addressen sowie Namen fülle
 
 
 
-Hier  Tragen Sie die Überschrift Ihrer Bibliothek ein! Bei SonderZeichen wie dem einfachen Anführungszeichen einen Backslash "\" davor.
+Hier  Tragen Sie die Überschrift Ihrer Bibliothek ein! Bei SonderZeichen wie dem einfachen Anführungszeichen einen Backslash "\" davor.\n
 $GLOBALS['header']='Deine Video Bibliothek';
 
 Geben Sie Hier bitte Ihre Main addresse an z.B. MeineDomain.org
