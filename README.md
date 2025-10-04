@@ -29,3 +29,12 @@ $GLOBALS['main_video_dir']='./FILE/DEINE-SPIELFILME';
 Geben Sie hier den Pfad der NFO-xml an !!!
 
 $GLOBALS['info']='_nfo/';
+
+# ToDo
+
+- Oberflächen konfigurator
+- Spielfilme und Serien Auswahl
+- Ausführliche nfo ausgabe
+- ReDesign
+- TMDB und IMDB API einbauen
+- andere ADDON
