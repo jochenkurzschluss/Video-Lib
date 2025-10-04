@@ -22,6 +22,19 @@ $GLOBALS['main_server']='https://DeineDomain.ORG';
 
 
 Geben Sie Hier bitte den relativen Filme Pfad an
+# !!! WICHTIG!!! 
+Die Filme werden über ein bild .jpg oder .png erkannt d.h. Die filme sollten in
+einzelnen ordnern Liegen und mit einem Titelbild versehen sein beispiel inhalt:
+BASISORDNER
+  |
+  |--> Erster film ORDNER
+  |  --> FILM.JPG / FILM.PNG
+  |  --> FILM,MP4 ö.ä.
+  |
+  |-->Zweiter FilmOrdner
+  |  --> FILM.JPG / FILM.PNG
+  |  --> FILM.AVI
+  
 
 $GLOBALS['main_video_dir']='./FILE/DEINE-SPIELFILME';
 
