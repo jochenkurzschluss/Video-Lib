@@ -26,8 +26,8 @@ $GLOBALS['main_server']='https://DeineDomain.ORG';
 
 Geben Sie Hier bitte den relativen Filme-Pfad an
 # !!! WICHTIG!!! 
-Die Filme werden über ein bild .jpg oder .png erkannt d.h. Die filme sollten in
-einzelnen ordnern Liegen und mit einem Titelbild versehen sein beispiel inhalt:
+Die Filme werden über ein Bild .jpg oder .png erkannt d.h. Die Filme sollten in
+einzelnen Ordnern liegen und mit einem Titelbild versehen sein beispiel inhalt:
 BASISORDNER
 
   |
