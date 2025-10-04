@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF8'?>
+<movie>
+    <title>Chihiros Reise ins Zauberland</title>
+    <originaltitle>千と千尋の神隠し</originaltitle>
+    <plot>Als die kleine Chihiro mit ihren Eltern während eines Ausflugs einen dunklen Tunnel durchquert, ahnt sie noch nicht, was sie auf der anderen Seite erwarten wird. Denn dort liegt eine für Menschen normalerweise unsichtbare Stadt der Geister. Zu allem Übel muss Chihiro dann auch noch feststellen, dass sich ihre Eltern in Schweine verwandelt haben und sie selbst plötzlich unsichtbar zu werden scheint...</plot>
+    <tagline>On the other side of the tunnel was a mysterious town</tagline>
+    <mpaa>Rated 0</mpaa>
+    <premiered>2001-07-20</premiered>
+    <year>2001</year>
+    <country>Japan</country>
+    <studio>Studio Ghibli</studio>
+    <director>Hayao Miyazaki</director>
+    <credits>Hayao Miyazaki</credits>
+    <writer>Hayao Miyazaki</writer>
+    <tag>magic</tag>
+    <tag>parallel world</tag>
+    <tag>youkai</tag>
+    <tag>anime</tag>
+    <tag>witch</tag>
+    <tag>parent child relationship</tag>
+    <tag>darkness</tag>
+    <tag>spirit</tag>
+    <tag>amusement park</tag>
+    <tag>bath house</tag>
+    <tag>japanese mythology</tag>
+    <isuserfavorite>false</isuserfavorite>
+    <genre>Animation</genre>
+    <genre>Familie</genre>
+    <genre>Fantasy</genre>
+    <ratings>
+        <rating name="themoviedb" max="10" default="true">
+            <value>8.5</value>
+            <votes>17493</votes>
+        </rating>
+    </ratings>
+    <rating>8.5</rating>
+    <votes>17493</votes>
+    <uniqueid type="imdb">tt0245429</uniqueid>
+    <uniqueid type="tmdb" default="true">129</uniqueid>
+    <imdbid>tt0245429</imdbid>
+    <imdb_id>tt0245429</imdb_id>
+    <tmdbid>129</tmdbid>
+    <dateadded>2024-10-04 13:33:52</dateadded>
+</movie>
