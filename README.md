@@ -2,6 +2,8 @@
 A little Overview of your Movies and Series
 
 
+![Uploading Demo.png…]()
+
 Diese kleine php Datei ist für nutzer die einen kleinen webserver mit heimischen Filmsammlungen
 einer oberfläche, ohne großen aufwand zu nutzen Möchten. Orientiert wird sich n der entwicklung an KODI, NETFLIX und AMAZONE uvm. der Film anbieter.
 Aber OHNE Teures Abbo!  Die Heimische Sammlung einfach anzeigen lassen und glücklich, werbefrei und schnell Loslegen.
