@@ -5,15 +5,15 @@ A little Overview of your Movies and Series
 
 
 
-Diese kleine php Datei ist für nutzer die einen kleinen webserver mit heimischen Filmsammlungen
-einer oberfläche, ohne großen aufwand zu nutzen Möchten. Orientiert wird sich n der entwicklung an KODI, NETFLIX und AMAZONE uvm. der Film anbieter.
+Diese kleine php Datei ist für nutzer die einen kleinen Webserver mit heimischen Filmsammlungen
+einer Oberfläche, ohne großen aufwand zu nutzen möchten. Orientiert wird sich in der entwicklung an KODI, NETFLIX und AMAZONE uvm. oder andere Film Anbieter.
 Aber OHNE Teures Abbo!  Die Heimische Sammlung einfach anzeigen lassen und glücklich, werbefrei und schnell Loslegen.
 
 Die $GLOBALS im Script mit den richtigen Pfaden und Addressen sowie Namen füllen und LOS!
 
 
 
-Hier  Tragen Sie die Überschrift Ihrer Bibliothek ein! Bei SonderZeichen wie dem einfachen Anführungszeichen einen Backslash "\" davor.
+Hier  Tragen Sie die Überschrift Ihrer Bibliothek ein! Bei SonderZeichen wie dem einfachen Anführungszeichen einen Backslash \ davor.
 
 $GLOBALS['header']='Deine Video Bibliothek';
 
@@ -24,7 +24,7 @@ Geben Sie Hier bitte Ihre Main addresse an z.B. MeineDomain.org
 $GLOBALS['main_server']='https://DeineDomain.ORG';
 
 
-Geben Sie Hier bitte den relativen Filme Pfad an
+Geben Sie Hier bitte den relativen Filme-Pfad an
 # !!! WICHTIG!!! 
 Die Filme werden über ein bild .jpg oder .png erkannt d.h. Die filme sollten in
 einzelnen ordnern Liegen und mit einem Titelbild versehen sein beispiel inhalt:
