@@ -31,17 +31,17 @@ BASISORDNER
 
   |--> Erster film ORDNER
  
-  |  --> FILM.JPG / FILM.PNG
+  |  ----> FILM.JPG / FILM.PNG
  
-  |  --> FILM,MP4 ö.ä.
+  |  ----> FILM,MP4 ö.ä.
  
   |
  
   |-->Zweiter FilmOrdner
  
-  |  --> FILM.JPG / FILM.PNG
+  |  ----> FILM.JPG / FILM.PNG
  
-  |  --> FILM.AVI
+  |  ----> FILM.AVI
   
 
 $GLOBALS['main_video_dir']='./FILE/DEINE-SPIELFILME';
