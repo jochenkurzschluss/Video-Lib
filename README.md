@@ -10,14 +10,22 @@ Die $GLOBALS im Script mit den richtigen Pfaden und Addressen sowie Namen fülle
 
 
 
-Hier  Tragen Sie die Überschrift Ihrer Bibliothek ein! Bei SonderZeichen wie dem einfachen Anführungszeichen einen Backslash "\" davor.\n
+Hier  Tragen Sie die Überschrift Ihrer Bibliothek ein! Bei SonderZeichen wie dem einfachen Anführungszeichen einen Backslash "\" davor.
+
 $GLOBALS['header']='Deine Video Bibliothek';
 
+
+
 Geben Sie Hier bitte Ihre Main addresse an z.B. MeineDomain.org
+
 $GLOBALS['main_server']='https://DeineDomain.ORG';
 
+
 Geben Sie Hier bitte den relativen Filme Pfad an
+
 $GLOBALS['main_video_dir']='./FILE/DEINE-SPIELFILME';
 
+
 Geben Sie hier den Pfad der NFO-xml an !!!
+
 $GLOBALS['info']='_nfo/';
