@@ -1,8 +1,9 @@
 # Video-Lib
 A little Overview of your Movies and Series
 
+<img width="1119" height="990" alt="Demo" src="https://github.com/user-attachments/assets/d03905de-7042-4903-bbe6-ba75c6ebff32" />
 
-![Uploading Demo.png…]()
+
 
 Diese kleine php Datei ist für nutzer die einen kleinen webserver mit heimischen Filmsammlungen
 einer oberfläche, ohne großen aufwand zu nutzen Möchten. Orientiert wird sich n der entwicklung an KODI, NETFLIX und AMAZONE uvm. der Film anbieter.
