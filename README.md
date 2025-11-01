@@ -57,8 +57,8 @@ $GLOBALS['info']='_nfo/';
 # ToDo
 
 - Oberflächen konfigurator
-- Spielfilme und Serien Auswahl
+- Spielfilme und Serien Auswahl (Erledigt) 
 - Ausführliche nfo ausgabe
-- ReDesign
+- ReDesign (begonnen)
 - TMDB und IMDB API einbauen
 - andere ADDON
