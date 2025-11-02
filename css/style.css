@@ -49,24 +49,6 @@ h1{
         background: #bdbfbe;
 	border-radius: 10px;
 }
-/*#playlist::-webkit-scrollbar{
-            	width: 15px;
-                border:1px solid #bdbfbe;
-                border-radius: 10px;
-                padding: 2px;
-                background-color: transparent;
-        }
-#playlist::-webkit-scrollbar-thumb{
-        width: 10px;
-	background: #bdbfbe;
-	border-radius: 10px;
-        margin: 0 auto;
-}
-#playlist::-webkit-scrollbar-track {
-        margin: 10px 0;
-        padding: 10px;
-}*/
-
 #playlist li:hover {
 	border-radius: 15px;
 	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.6);
