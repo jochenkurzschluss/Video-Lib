@@ -37,3 +37,5 @@ README.md
 <p align="left">[] Oberflächen konfigurator<br>[*] Spielfilme und Serien Auswahl (Erledigt)<br>[] Ausführliche nfo ausgabe<br>[] ReDesign (begonnen)<br>[] TMDB und IMDB API einbauen<br>[] andere ADDON</p>
 
 ###
+
+<p align="left">Mehr im WIKI<br>https://github.com/jochenkurzschluss/Video-Lib/wiki</p>
