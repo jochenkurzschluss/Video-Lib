@@ -1,12 +1,12 @@
 # Video-Lib
-A little Overview of your Movies and Series
+Deine kleine Private Videothek aus deinen eigenen Spielfilme und Serien
 
 <img width="1119" height="990" alt="Demo" src="https://github.com/user-attachments/assets/d03905de-7042-4903-bbe6-ba75c6ebff32" />
 
 
 
-Diese kleine php Datei ist für nutzer die einen kleinen Webserver mit heimischen Filmsammlungen
-einer Oberfläche, ohne großen aufwand zu nutzen möchten. Orientiert wird sich in der entwicklung an KODI, NETFLIX und AMAZONE uvm. oder andere Film Anbieter.
+Diese kleine php Datei ist für nutzer die einen kleinen Webserver mit der heimischen Filmsammlung
+einer Oberfläche, ohne großen aufwand zu nutzen können. Orientiert wird sich in der entwicklung an KODI, NETFLIX und AMAZONE uvm. oder andere Film Anbieter.
 Aber OHNE Teures Abbo!  Die Heimische Sammlung einfach anzeigen lassen und glücklich, werbefrei und schnell Loslegen.
 
 Die $GLOBALS im Script mit den richtigen Pfaden und Addressen sowie Namen füllen und LOS!
@@ -19,7 +19,7 @@ $GLOBALS['header']='Deine Video Bibliothek';
 
 
 
-Geben Sie Hier bitte Ihre Main addresse an z.B. MeineDomain.org
+Geben Sie Hier bitte Ihre Main addresse an z.B. MeineDomain.org oder die IP-Addresse ein.
 
 $GLOBALS['main_server']='https://DeineDomain.ORG';
 
@@ -56,9 +56,9 @@ $GLOBALS['info']='_nfo/';
 
 # ToDo
 
-- Oberflächen konfigurator
-- Spielfilme und Serien Auswahl (Erledigt) 
-- Ausführliche nfo ausgabe
-- ReDesign (begonnen)
-- TMDB und IMDB API einbauen
-- andere ADDON
+- [] Oberflächen konfigurator
+- [*] Spielfilme und Serien Auswahl (Erledigt) 
+- [] Ausführliche nfo ausgabe
+- [] ReDesign (begonnen)
+- [] TMDB und IMDB API einbauen
+- [] andere ADDON
