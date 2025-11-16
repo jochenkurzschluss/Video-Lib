@@ -5,65 +5,68 @@ body{
 	font-size:18pt;
 }
 h1{
-  display: block;
-  font-size: 60px;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-  text-decoration: underline;
-  text-align: center;
-}h2{
-  display: block;
-  font-size: 40px;
-  margin: 0px;
-  padding: 0px;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
+	display: block;
+	font-size: 60px;
+	margin-top: 0.67em;
+	margin-bottom: 0.67em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+	text-decoration: underline;
+	text-align: center;
+}
+h2{
+	display: block;
+	font-size: 40px;
+	margin: 0px;
+	padding: 0px;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+}
+textarea {
+	resize: none;
 }
 #playlist {
-            list-style: none;
-            width: 300px;
-            padding: 15px;
-            cursor: pointer;
-            overflow: scroll;
-            font-size: 14pt;
-            border: 1px solid #bdbfbe;
-            overflow-x: hidden;
-            
-        }
+	list-style: none;
+	width: 300px;
+	padding: 15px;
+	cursor: pointer;
+	overflow: scroll;
+	font-size: 14pt;
+	border: 1px solid #bdbfbe;
+	overflow-x: hidden;
+}
 #playlist::-webkit-scrollbar{
-        width: 15px;
-        background-color: transparent;
-        border:1px solid #bdbfbe;
-        border-radius: 10px;
+	width: 15px;
+	background-color: transparent;
+	border:1px solid #bdbfbe;
+	border-radius: 10px;
 }
 #playlist::-webkit-scrollbar-button{
-        background-color: #bdbfbe;
-        border:1px solid #bdbfbe;
-        border-radius: 10px;
+	background-color: #bdbfbe;
+	border:1px solid #bdbfbe;
+	border-radius: 10px;
 }
 #playlist::-webkit-scrollbar-thumb{
-        background: #bdbfbe;
+	background: #bdbfbe;
 	border-radius: 10px;
 }
 #playlist li:hover {
 	border-radius: 15px;
 	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.6);
 }
-        #playlist li {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        #playlist li.current-video {
-        padding: 15px;
-            font-weight: bold;
-            border-radius: 10px;
-            color: #000000;
-            background-color: #f0f0f0;
-        }
+#playlist li {
+	padding: 15px;
+	border-bottom: 1px solid #eee;
+}
+#playlist li.current-video {
+	padding: 15px;
+	font-weight: bold;
+	border-radius: 10px;
+	color: #000000;
+	background-color: #f0f0f0;
+}
 a{
 	color: #ffffff;
 	text-decoration: none;
@@ -72,7 +75,6 @@ a:hover{
 	color: #ffffff;
 	text-decoration: underline;
 }
-
 div#main{
 	margin-top: 50px;
 	border: 1px solid #FFFFFF;
@@ -85,7 +87,7 @@ div#main{
 	border-radius: 15px;
 }
 div.playlist-container{
-        margin: auto;
+	margin: auto;
 	display: flex;
 	gap: 20px;
 	height: 380px;
@@ -103,8 +105,30 @@ div.choose{
 	min-width:48%;
 	min-height: 255px;
 }
+div.choose:hover{
+	margin-top: 50px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.6);
+	color: #FFFFFF;
+	font-size: 25pt;
+	text-align: justify;
+	float: left;
+	margin-left: 15px;
+	text-align: center;
+	min-width:48%;
+	min-height: 255px;
+}
 div.clear{
 	clear: both;
+}
+img.conf{
+	height: 30px;
+	width: 30px;
+}
+div.config{
+	float: right;
+	/*border: 1px solid #FFFFFF;*/
 }
 div.image{
 	border: 1px solid lightblue;
@@ -115,25 +139,23 @@ div.image{
 	height: 435px;
 }
 div.image:hover{
-        border: 1px solid lightblue;
-        float: left;
-        margin-left: 15px;
-        text-align: center;
-        width: 186px;
-        height: 440px;
+	border: 1px solid lightblue;
+	float: left;
+	margin-left: 15px;
+	text-align: center;
+	width: 186px;
+	height: 440px;
 	text-decoration: underline;
 	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.6);
 	background-color: #2e2d2b;
 }
-
 div.container{
-	/*border-bottom: 1px solid lightblue;*/
 	margin-top: 25px;
-	padding : 10 px;
+	padding : 10px;
+	min-height: 450px;
 }
 div.detail{
 	text-align: justify;
-/*	border: 1px solid #636363;*/
 	float: left;
 	margin-left: 15px;
 	text-align: center;
@@ -153,44 +175,58 @@ div.detail{
 	cursor: pointer;
 }
 .button:hover{ 
-        background-color: #bdbfbe;
-        border: 1px solid #FFFFFF;
-        border-radius: 30px;
-        color: #0F0F0F;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: underline;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
+	background-color: #bdbfbe;
+	border: 1px solid #FFFFFF;
+	border-radius: 30px;
+	color: #0F0F0F;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: underline;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
 	box-shadow: 0 8px 16px 0 rgba(255,255,255,0.6);
 }
 
 .play{
-        background-color: #bdbfbe;
-        border: none;
-        border-radius: 30px;
-        color: #000000;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
+	background-color: #bdbfbe;
+	border: none;
+	border-radius: 30px;
+	color: #000000;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
 }
 .play:hover{ 
-        background-color: #bdbfbe;
-        border: 1px solid #FFFFFF;
-        border-radius: 30px;
-        color: #000000;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: underline;
-        display: inline-block;
-        font-size: 18px;
-        margin: 4px 2px;
-        cursor: pointer;
-        box-shadow: 0 8px 18px 0 rgba(255,255,255,0.6);
+	background-color: #bdbfbe;
+	border: 1px solid #FFFFFF;
+	border-radius: 30px;
+	color: #000000;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: underline;
+	display: inline-block;
+	font-size: 18px;
+	margin: 4px 2px;
+	cursor: pointer;
+	box-shadow: 0 8px 18px 0 rgba(255,255,255,0.6);
+}
+.tooltiptext {
+	visibility: hidden;
+	margin-left: 85px;
+	background-color: transparent;
+	color: #fffffff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1; 
+}
+.choose:hover .tooltiptext {
+	visibility: visible;
 }
