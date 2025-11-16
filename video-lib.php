@@ -7,27 +7,27 @@ Software wie Kodi bestehen kann.
 Copyright Michael Herholt ALIAS DO2ITH 08/ 2025
 */
 session_start();
-//Hier  Tragen Sie die Überschrift Ihrer Bibliothek ein! Bei SonderZeichen wie dem einfachen Anführungszeichen einen Backslash "\" davor.
-$GLOBALS['header']='Deine Videothek';
-// Geben Sie Hier bitte Ihre Main addresse an z.B. MeineDomain.org
-$GLOBALS['main_server']='https://DeineDomain.org';
-// Geben Sie Hier bitte den relativen Filme Pfad an
-$GLOBALS['main_video_dir']='./Dein/FILME/Ordner';
-// Geben Sie Hier bitte den relativen Serien Pfad an
-$GLOBALS['main_serien_dir']='./Deine/Serien/Ordner';
-// Geben Sie hier den Pfad der NFO-xml an !!!
-$GLOBALS['info']='_nfo/';
-// Was soll im Bideo Vorab Geladen werden ? none == Nichts, metadata == nur Meta Daten, auto == Automatische auswahl (Standart)
-$GLOBALS['v_preload'] = 'auto';
-// Video Automatisch abspieln ? (Yes // NO ) (No standart)
-$GLOBALS['autoplay'] = 'no';
-
-// Ab Hier KEINE Eintäge mehr Ändern!!!!!
+if(is_file('config.php')){
+	include 'config.php';
+}
+if(is_file('css/style_user.css')){
+	$GLOBAL['style'] = 'css/style_user.css';
+}else{
+	$GLOBAL['style'] = 'css/style.css';
+}
+get_addr();
 $GLOBALS['reihe']=1;
 $GLOBALS['s_reihe']=1;
 $GLOBALS['vid']=0;
 $GLOBALS['sid']=0;
-
+// Die Serveraddresse festlegen!
+function get_addr(){
+	$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+	$host = $_SERVER['HTTP_HOST'];
+	$requestUri = $_SERVER['REQUEST_URI'];
+	$fullUrl = $protocol . $host . dirname($requestUri);
+	$GLOBALS['main_server'] = $fullUrl;
+}
 // Ausgabe und abfrage der Verschiedenen oder einzelnen Filme
 function sh_movie(){
 		if(filter_input(INPUT_GET, 'movie')==1){
@@ -133,7 +133,7 @@ function s_reku($dir){
 	echo "<script>";
 	echo "const videoPaths = ".$json_videos.";"; 
 	echo "</script>";
-	echo "<script src='playlist.js'></script>";
+	echo "<script src='playlist_v2.js'></script>";
 	unset($video_array);
 }
 function select_serie($dir,$thumb){
@@ -217,8 +217,9 @@ function choose($choos){
 	}else{
 		echo "<h1>".$GLOBALS['header']."</h1>";
 		echo "<h2>Was darf es sein?</h2>";
-		echo "<a href='?choose=movie'><div class='choose' style='background-image: url(\"css/movie.jpg\");'><p></p></div></a>";
-		echo "<a href='?choose=serie'><div class='choose' style='background-image: url(\"css/serie_3.jpg\");'><p></p></div></a>";
+		echo "<a href='?config=1' class='button'style='float: right; margin-right: 40px;'><div class='config'><img src='css/settings.png' class='conf' /></div></a><div class='clear'></div>";
+		echo "<a href='?choose=movie'><div class='choose' style='background-image: url(\"css/movie.jpg\");'><p class='tooltiptext'>SPIELFILME</p></div></a>";
+		echo "<a href='?choose=serie'><div class='choose' style='background-image: url(\"css/serie_3.jpg\");'><p class='tooltiptext'>SERIEN</p></div></a>";
 		echo "<div class='clear'></div>";
 	}
 }
@@ -251,7 +252,7 @@ function btv($text){
 	}elseif($langer >= 41 && $langer <= 50 ){
 		$nsize = "style='font-size: 14pt;'";
 	}elseif($langer >= 51 ){
-                 $nsize = "style='font-size: 12pt;'";
+		$nsize = "style='font-size: 12pt;'";
 	}else{
 		$nsize = '';
 	}
@@ -259,7 +260,8 @@ function btv($text){
 }
 function xml_out($nfo){
 	global $GLOBALS;
-	$filePath = $GLOBALS['info'].$nfo;
+	$pre_filePath = $GLOBALS['info'].'/'.$nfo;
+	$filePath = str_replace('//','/',$pre_filePath);
 	// Lade die XML-Datei
 	$xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NONET | LIBXML_NOENT);
 	// Überprüfe, ob das Laden erfolgreich war
@@ -268,7 +270,7 @@ function xml_out($nfo){
 	} else {
 		// Gib den Inhalt des 'plot'-Elements aus
 		$plot = (string) $xml->plot;
-		echo $plot; // augabe
+		echo htmlspecialchars($plot); // augabe
 	}
 }
 function select_movie($pfad){
@@ -304,7 +306,6 @@ function list_dir_reku($verzeichnis) {
 					$dateinformationen = pathinfo($bi);
 					$dateiendung = $dateinformationen['extension'];
 					$title = str_replace(".".$dateiendung, "", $eintrag);
-					// Diese Zeile ist Obsolet ? $dir = str_replace("./", "", $verzeichnis);
 					if ($dateiendung == "jpg" || $dateiendung == "png"){
 						if ($GLOBALS['reihe']==1){
 							$movid=$GLOBALS['vid'];
@@ -345,6 +346,110 @@ function list_dir_reku($verzeichnis) {
 	}
 	return $_SESSION;
 }
+function conf_files(string $current_dir): void {
+	$items = scandir($current_dir);
+	if($items !== false){
+		foreach($items as $item_name){
+			if ($item_name !== "." && $item_name !== "..") {
+				$full_path = $current_dir . DIRECTORY_SEPARATOR . $item_name;
+				if(is_dir($full_path)){
+					echo "<option value='".str_replace('.//','',$full_path)."'>".str_replace('.//','',$full_path)."</option>";
+					conf_files($full_path);
+				}
+			}
+		}
+	}
+}
+function css_name($css){
+	if($css == 'style.css'){
+		echo '<h3>Die Style-Datei:&nbsp;'.$css.'&nbsp;(das ist der Standart)</h3>';
+	}else{
+		echo '<h3>Die Style-Datei:&nbsp;'.$css.'</h3>';
+	}
+}
+function css_edit(){
+	$pre_css = scandir('css/');
+	echo '';
+	if($pre_css !== false){
+		foreach($pre_css as $css){
+			if ($css !== "." && $css !== "..") {
+				$file_end = pathinfo($css);
+				$file_end_chk = $file_end['extension'];
+				if($file_end_chk != 'jpg' && $file_end_chk != 'png' && $file_end_chk != 'ico'){
+					if (file_exists('css/'.$css)) {
+						$css_content = file_get_contents('css/'.$css);
+					} else {
+						$css_content = 'Fehler: Die CSS-Datei wurde nicht gefunden.';
+					}
+					css_name($css);
+					echo '<p><textarea rows="20" cols="80" name="'.str_replace('.'.$file_end_chk, '', $css).'" id="'.str_replace('.'.$file_end_chk, '', $css).'">';
+					echo htmlspecialchars($css_content);
+					echo '</textarea></p>';
+				}
+			}
+		}
+	}
+}
+function configure(){
+	$conf_dir = './';
+	$script = str_replace(dirname($_SERVER['REQUEST_URI']),'',$_SERVER['SCRIPT_NAME']);
+	echo '<br><br><br><a href="'.$_SERVER['SCRIPT_NAME'].'" class="button" style="float:right; margin-right:40px;">Zur Hauptseite</a>';
+	echo '<form action="" method="post">';
+		echo '<p>Wähle einen Spielfilm Ordner aus!</p>';
+		echo '<select name="Spielfilm" id="movie">';
+			echo '<option value="0">Spielfilm</option>';
+				conf_files($conf_dir);
+		echo '</select><br>';
+		echo '<p>Wähle einen Serien Ordner aus!</p>';
+		echo '<select name="Serie" id="serie">';
+			echo '<option value="0">Serie</option>';
+			conf_files($conf_dir);
+		echo '</select>';
+		echo '<p>Wähle einen NFO Ordner aus!</p>';
+		echo '<select name="Nfo" id="nfo">';
+			echo '<option value="0">NFO</option>';
+			conf_files($conf_dir);
+		echo '</select><br>';
+		echo '<p>Autoplay ?</p>';
+		echo '<select name="auto" id="auto">';
+			echo '<option value="Yes">Ja</option>';
+			echo '<option value="No">Nein</option>';
+		echo '</select><br>';
+		echo '<p>Metadaten Laden ?</p>';
+		echo '<select name="meta" id="meta">';
+			echo '<option value="none">Keine</option>';
+			echo '<option value="metadata">Meta-Daten</option>';
+			echo '<option value="auto">Automatisch</option>';
+		echo '</select><br>';
+		echo '<p>Wie Soll die Überschrift lauten ?</p>';
+		echo '<input type="text" id="head" name="head"><br>';
+		echo '<button type="submit">Speichern !</button>';
+	echo '</form>';
+	css_edit();
+	if(filter_input(INPUT_POST,'Spielfilm') != null && filter_input(INPUT_POST,'Serie') != null && filter_input(INPUT_POST,'Nfo') != null && filter_input(INPUT_POST,'auto') != null && filter_input(INPUT_POST,'meta') != null && filter_input(INPUT_POST,'head') != null){
+		echo 'Deine Speilfime werden in&nbsp;&nbsp;./'.filter_input(INPUT_POST,'Spielfilm').' gesucht!<br>';
+		echo 'Deine Serien werden in&nbsp;&nbsp;./'.filter_input(INPUT_POST,'Serie').' gesucht!<br>';
+		echo 'Die Film uns Serien Informationen werden in&nbsp;&nbsp;./'.filter_input(INPUT_POST,'Nfo').' gesucht!<br>';
+		echo 'Das autoplay ist:&nbsp;&nbsp;'.filter_input(INPUT_POST,'auto').' !<br>';
+		echo 'Die Metadaten sind wie volgt vorab geladen:&nbsp;&nbsp;'.filter_input(INPUT_POST,'meta').'<br>';
+		echo 'Deine Überschrift und Name der Seite ist:&nbsp;&nbsp;'.filter_input(INPUT_POST,'head').'<br>';
+		echo '<p>Danke das du deine Einstellungen vorgenommen hast!</p>';
+		if(is_file('config.php')){
+			unlink('config.php');
+		}
+		$file_content = '<?php'.PHP_EOL.'$GLOBALS["main_video_dir"] = "./'.filter_input(INPUT_POST,'Spielfilm').'";'.PHP_EOL.'$GLOBALS["main_serien_dir"] = "./'.filter_input(INPUT_POST,'Serie').'";'.PHP_EOL.'$GLOBALS["info"] = "'.filter_input(INPUT_POST,'Nfo').'";'.PHP_EOL.'$GLOBALS["v_preload"] = "'.filter_input(INPUT_POST,'meta').'";'.PHP_EOL.'$GLOBALS["header"]= "'.filter_input(INPUT_POST,'head').'";'.PHP_EOL.'$GLOBALS["autoplay"] = "'.filter_input(INPUT_POST,'auto').'";'.PHP_EOL.'?>';
+		echo $file_content;
+		$file = 'config.php';
+		$data_handle = fopen($file, 'w');
+		if($data_handle){
+			$write = fwrite($data_handle, $file_content);
+			fclose($data_handle);
+			echo '<h2>&#9989;&nbsp;Konfiguration Erfolgreich in Datei Geschrieben !!!</h2>';
+		}else{
+			echo '<h2>&#10060;&nbsp;Die Konfiguration wurde NICHT Geschrieben !!!</h2>';
+		}
+	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -357,13 +462,18 @@ function list_dir_reku($verzeichnis) {
 		<meta name="page-topic" content= "Private Homepage">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="css/favicon.ico" sizes="48x48">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="<?php echo $GLOBAL['style'] ?>">
 		<title><?php echo $GLOBALS['header']; ?></title>
 	</head>
 	<body>
 		<div id=main>
 <?php
-choose(filter_input(INPUT_GET,'choose'));
+if(is_file('config.php') && filter_input(INPUT_GET, 'config') != '1'){
+	choose(filter_input(INPUT_GET,'choose'));
+}elseif(!is_file('config.php') || filter_input(INPUT_GET, 'config') == '1'){
+	echo "<h1>Keine Konfiguration!</h1>";
+	configure();
+}
 ?>
 		</div>
 	</body>
